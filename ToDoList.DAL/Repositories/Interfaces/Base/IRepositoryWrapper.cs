@@ -6,7 +6,7 @@ namespace ToDoList.DAL.Repositories.Interfaces.Base;
 
 public interface IRepositoryWrapper
 {
-    public IStatusRepository<Status> StatusRepository { get; }
-    public IToDoRepository<ToDo> ToDoRepository { get; }
+    public IStatusRepository StatusRepository { get; }
+    public IToDoRepository ToDoRepository { get; }
     public Task<int> SaveChangesAsync();
 }

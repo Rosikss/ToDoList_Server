@@ -14,9 +14,9 @@ namespace ToDoList.BLL.DTO.ToDo
         [StringLength(50)]
         public string Title { get; set; }
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public string CreatedAt { get; set; }
         [Required]
-        public DateTime DueDate { get; set; }
+        public string DueDate { get; set; }
         [Required]
         [StringLength(500)]
         public string Description { get; set; }

@@ -18,12 +18,9 @@ namespace ToDoList.DAL.Persistence
         public DbSet<ToDo> ToDos { get; set; }
         public DbSet<Status> Statuses { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-
         }
     }
 }

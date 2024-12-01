@@ -17,6 +17,6 @@ namespace ToDoList.DAL.Entities
         public string Description { get; set; }
 
         public int StatusId { get; set; }
-        public Status? StatusNavigation { get; set; }
+        public Status? Status { get; set; }
     }
 }

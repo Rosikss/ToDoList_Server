@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ToDoList.BLL.DTO.Status;
 using ToDoList.BLL.Services.Interfaces;
 using ToDoList.DAL.Entities;
@@ -23,7 +24,7 @@ public class StatusService : IStatusService
         return _mapper.Map<IEnumerable<StatusDTO>>(entities);
     }
 
-    public async Task<StatusDTO> GetByIdAsync(int id)
+    public async Task<StatusDTO?> GetByIdAsync(int id)
     {
         var entity = await _repositoryWrapper.StatusRepository.GetFirstOrDefaultAsync(s => s.Id == id);
         return _mapper.Map<StatusDTO>(entity);
@@ -37,7 +38,7 @@ public class StatusService : IStatusService
         return _mapper.Map<StatusDTO>(entity);
     }
 
-    public async Task<StatusDTO> UpdateAsync(StatusUpdateDTO model)
+    public async Task<StatusDTO?> UpdateAsync(StatusUpdateDTO model)
     {
         var updateEntity = _mapper.Map<Status>(model);
         var entity = _repositoryWrapper.StatusRepository.Update(updateEntity);

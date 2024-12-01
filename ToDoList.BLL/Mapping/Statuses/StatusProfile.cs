@@ -17,6 +17,8 @@ namespace ToDoList.BLL.Mapping.Statuses
             CreateMap<Status, StatusDTO>().ReverseMap();
             CreateMap<StatusUpdateDTO, Status>().ReverseMap();
             CreateMap<StatusCreateDTO, Status>();
+
+            
         }
     }
 }

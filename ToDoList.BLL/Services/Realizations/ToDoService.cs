@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ToDoList.BLL.DTO.Status;
 using ToDoList.BLL.DTO.ToDo;
 using ToDoList.BLL.Services.Interfaces;
@@ -20,13 +21,20 @@ public class ToDoService : IToDoService
 
     public async Task<IEnumerable<ToDoDTO>> GetAllAsync()
     {
-        var entities = await _repositoryWrapper.ToDoRepository.GetAllAsync();
+        var entities = await _repositoryWrapper.ToDoRepository
+            .GetAllAsync(include: queryable => queryable.Include(td => td.Status
+            ));
+        
         return _mapper.Map<IEnumerable<ToDoDTO>>(entities);
     }
 
     public async Task<ToDoDTO> GetByIdAsync(int id)
     {
-        var entity = await _repositoryWrapper.ToDoRepository.GetFirstOrDefaultAsync(s => s.Id == id);
+        var entity = await _repositoryWrapper.ToDoRepository.GetFirstOrDefaultAsync(
+            predicate: s => s.Id == id, 
+            include: queryable => queryable.Include(td => td.Status
+            ));
+        
         return _mapper.Map<ToDoDTO>(entity);
     }
 

@@ -5,7 +5,7 @@ using ToDoList.DAL.Repositories.Realizations.Base;
 
 namespace ToDoList.DAL.Repositories.Realizations.Statuses;
 
-public class StatusRepository : RepositoryBase<Status>, IStatusRepository<Status>
+public class StatusRepository : RepositoryBase<Status>, IStatusRepository
 {
     public StatusRepository(ApplicationDbContext dbContext) : base(dbContext)
     {

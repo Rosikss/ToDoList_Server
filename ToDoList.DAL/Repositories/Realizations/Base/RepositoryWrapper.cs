@@ -11,15 +11,15 @@ namespace ToDoList.DAL.Repositories.Realizations.Base;
 
 public class RepositoryWrapper : IRepositoryWrapper, IDisposable
 {
-    private IStatusRepository<Status> _statusRepository;
-    private IToDoRepository<ToDo> _toDoRepository;
+    private IStatusRepository _statusRepository;
+    private IToDoRepository _toDoRepository;
     private readonly ApplicationDbContext _applicationDbContext;
     public RepositoryWrapper(ApplicationDbContext applicationDbContext)
     {
         _applicationDbContext = applicationDbContext;
     }
 
-    public IStatusRepository<Status> StatusRepository
+    public IStatusRepository StatusRepository
     {
         get
         {
@@ -32,7 +32,7 @@ public class RepositoryWrapper : IRepositoryWrapper, IDisposable
         }
     }
     
-    public IToDoRepository<ToDo> ToDoRepository
+    public IToDoRepository ToDoRepository
     {
         get
         {

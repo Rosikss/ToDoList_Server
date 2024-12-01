@@ -13,7 +13,10 @@ namespace ToDoList.BLL.Mapping.ToDos
     {
         public ToDoProfile()
         {
-            CreateMap<ToDo, ToDoDTO>().ReverseMap();
+            CreateMap<ToDo, ToDoDTO>()
+                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt.ToString("dd/MM/yyyy")))
+                .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.DueDate.ToString("dd/MM/yyyy")))
+                .ReverseMap();
             CreateMap<ToDoUpdateDTO, ToDo>().ReverseMap();
             CreateMap<ToDoCreateDTO, ToDo>();
         }

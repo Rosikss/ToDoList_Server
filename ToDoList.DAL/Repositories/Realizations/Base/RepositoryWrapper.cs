@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ToDoList.DAL.Entities;
-using ToDoList.DAL.Persistence;
+﻿using ToDoList.DAL.Persistence;
 using ToDoList.DAL.Repositories.Interfaces.Base;
 using ToDoList.DAL.Repositories.Interfaces.Statuses;
 using ToDoList.DAL.Repositories.Interfaces.ToDos;

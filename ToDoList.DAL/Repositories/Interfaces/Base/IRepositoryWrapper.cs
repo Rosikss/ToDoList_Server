@@ -1,5 +1,4 @@
-﻿using ToDoList.DAL.Entities;
-using ToDoList.DAL.Repositories.Interfaces.Statuses;
+﻿using ToDoList.DAL.Repositories.Interfaces.Statuses;
 using ToDoList.DAL.Repositories.Interfaces.ToDos;
 
 namespace ToDoList.DAL.Repositories.Interfaces.Base;

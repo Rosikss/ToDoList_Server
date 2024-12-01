@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using ToDoList.BLL.DTO.ToDo;
 using ToDoList.DAL.Entities;
 
-namespace ToDoList.BLL.Mapping.ToDos
+namespace ToDoList.BLL.Mapping.ToDos;
+
+public class ToDoProfile : Profile
 {
-    public class ToDoProfile : Profile
+    public ToDoProfile()
     {
-        public ToDoProfile()
-        {
-            CreateMap<ToDo, ToDoDTO>()
-                .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt.ToString("dd/MM/yyyy")))
-                .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.DueDate.ToString("dd/MM/yyyy")))
-                .ReverseMap();
-            CreateMap<ToDoUpdateDTO, ToDo>().ReverseMap();
-            CreateMap<ToDoCreateDTO, ToDo>();
-        }
+        CreateMap<ToDo, ToDoDTO>()
+            .ForMember(dest => dest.CreatedAt, opt => opt.MapFrom(src => src.CreatedAt.ToString("dd/MM/yyyy")))
+            .ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.DueDate.ToString("dd/MM/yyyy")))
+            .ReverseMap();
+        CreateMap<ToDoUpdateDTO, ToDo>().ReverseMap();
+        CreateMap<ToDoCreateDTO, ToDo>();
     }
 }

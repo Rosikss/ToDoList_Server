@@ -28,4 +28,8 @@
     <ProjectReference Include="..\ToDoList.DAL\ToDoList.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ToDoList.BLL.DTO.Status;
 using ToDoList.BLL.Services.Interfaces;
 using ToDoList.DAL.Entities;
@@ -12,10 +12,12 @@ public class StatusService : IStatusService
 
     private readonly IRepositoryWrapper _repositoryWrapper;
     private readonly IMapper _mapper;
-    public StatusService(IRepositoryWrapper repositoryWrapper, IMapper mapper)
+    private readonly ILogger<StatusService> _logger;
+    public StatusService(IRepositoryWrapper repositoryWrapper, IMapper mapper, ILogger<StatusService> logger)
     {
         _repositoryWrapper = repositoryWrapper;
         _mapper = mapper;
+        _logger = logger;
     }
 
     public async Task<IEnumerable<StatusDTO>> GetAllAsync()
@@ -30,17 +32,17 @@ public class StatusService : IStatusService
         return _mapper.Map<StatusDTO>(entity);
     }
 
-    public async Task<StatusDTO> AddAsync(StatusCreateDTO model)
+    public async Task<StatusDTO> AddAsync(StatusCreateDTO statusCreateDto)
     {
-        var newEntity = _mapper.Map<Status>(model);
+        var newEntity = _mapper.Map<Status>(statusCreateDto);
         var entity = await _repositoryWrapper.StatusRepository.CreateAsync(newEntity);
         await _repositoryWrapper.SaveChangesAsync();
         return _mapper.Map<StatusDTO>(entity);
     }
 
-    public async Task<StatusDTO?> UpdateAsync(StatusUpdateDTO model)
+    public async Task<StatusDTO> UpdateAsync(StatusUpdateDTO statusUpdateDto)
     {
-        var updateEntity = _mapper.Map<Status>(model);
+        var updateEntity = _mapper.Map<Status>(statusUpdateDto);
         var entity = _repositoryWrapper.StatusRepository.Update(updateEntity);
         await _repositoryWrapper.SaveChangesAsync();
         return _mapper.Map<StatusDTO>(entity);
@@ -49,9 +51,10 @@ public class StatusService : IStatusService
     public async Task DeleteAsync(int id)
     {
         var entity = await _repositoryWrapper.StatusRepository.GetFirstOrDefaultAsync(s => s.Id == id);
-        if (entity is null)
+        if (entity == null)
         {
-            throw new ArgumentNullException();
+            _logger.LogWarning("Status with ID {Id} not found for deletion.", id);
+            throw new ArgumentNullException($"Status with ID {id} not found.");
         }
 
         _repositoryWrapper.StatusRepository.Delete(entity);

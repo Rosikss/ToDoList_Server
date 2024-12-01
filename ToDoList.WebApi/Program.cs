@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using ToDoList.BLL.Mapping.Statuses;
-using ToDoList.BLL.Mapping.ToDos;
 using ToDoList.BLL.Services.Interfaces;
 using ToDoList.BLL.Services.Realizations;
 using ToDoList.DAL.Persistence;

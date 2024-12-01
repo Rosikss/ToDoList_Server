@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToDoList.BLL.DTO.ToDo
 {
-    internal class ToDoDTO
+    public class ToDoDTO
     {
         public int Id { get; set; }
         public string Title { get; set; }

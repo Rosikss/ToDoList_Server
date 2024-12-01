@@ -1,4 +1,5 @@
-﻿using ToDoList.DAL.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using ToDoList.DAL.Entities;
 using ToDoList.DAL.Persistence;
 using ToDoList.DAL.Repositories.Interfaces.Base;
 using ToDoList.DAL.Repositories.Interfaces.Statuses;
@@ -44,6 +45,10 @@ public class RepositoryWrapper : IRepositoryWrapper, IDisposable
         }
     }
 
+    public async Task<int> SaveChangesAsync()
+    {
+        return await _applicationDbContext.SaveChangesAsync();
+    }
 
     private bool _disposed = false;
 

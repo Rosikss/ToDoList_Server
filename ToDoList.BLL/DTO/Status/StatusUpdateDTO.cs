@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToDoList.BLL.DTO.Status
 {
-    class StatusUpdateDTO
+    public class StatusUpdateDTO
     {
         public int Id { get; set; }
         [Required]

@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using ToDoList.BLL.Mapping.Statuses;
+using ToDoList.BLL.Mapping.ToDos;
 using ToDoList.DAL.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +24,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 });
+
+var currentAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+builder.Services.AddAutoMapper(currentAssemblies);
+
 
 var app = builder.Build();
 

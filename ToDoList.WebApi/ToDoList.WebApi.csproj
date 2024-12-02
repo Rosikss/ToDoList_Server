@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>83824149-655f-4d4f-a449-fe2146b04b06</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,10 +27,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ToDoList.BLL\ToDoList.BLL.csproj" />
     <ProjectReference Include="..\ToDoList.DAL\ToDoList.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>

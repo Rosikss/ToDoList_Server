@@ -1,0 +1,19 @@
+services:
+  todolist.webapi:
+    image: ${DOCKER_REGISTRY-}todolistwebapi
+    build:
+      context: .
+      dockerfile: ToDoList.WebApi/Dockerfile
+    depends_on: 
+      - mssql
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server
+    container_name: upbeat_stonebraker
+    ports:
+      - "1400:1433"
+    environment:
+      SA_PASSWORD: "!1String"
+      ACCEPT_EULA: "Y"
+
+

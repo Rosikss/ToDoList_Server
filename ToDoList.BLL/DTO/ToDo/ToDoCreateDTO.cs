@@ -6,16 +6,16 @@ public class ToDoCreateDTO
 {
     [Required]
     [StringLength(50)]
-    public string Title { get; set; }
+    public string? Title { get; set; }
     [Required]
     [DataType(DataType.Date)]
-    public string CreatedAt { get; set; }
+    public string? CreatedAt { get; set; }
     [Required]
     [DataType(DataType.Date)]
-    public string DueDate { get; set; }
+    public string? DueDate { get; set; }
     [Required]
     [StringLength(500)]
-    public string Description { get; set; }
+    public string? Description { get; set; }
     [Required]
     public int StatusId { get; set; }
 }

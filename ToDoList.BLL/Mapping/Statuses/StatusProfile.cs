@@ -11,7 +11,5 @@ public class StatusProfile : Profile
         CreateMap<Status, StatusDTO>().ReverseMap();
         CreateMap<StatusUpdateDTO, Status>().ReverseMap();
         CreateMap<StatusCreateDTO, Status>();
-
-            
     }
 }

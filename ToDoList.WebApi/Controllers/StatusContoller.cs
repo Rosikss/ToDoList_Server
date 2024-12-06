@@ -6,12 +6,12 @@ namespace ToDoList.WebApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class StatusContoller : ControllerBase
+public class StatusController : ControllerBase
 {
     private readonly IStatusService _statusService;
-    private readonly ILogger<StatusContoller> _logger;
+    private readonly ILogger<StatusController> _logger;
 
-    public StatusContoller(IStatusService statusService, ILogger<StatusContoller> logger)
+    public StatusController(IStatusService statusService, ILogger<StatusController> logger)
     {
         _statusService = statusService;
         _logger = logger;

@@ -4,18 +4,9 @@ namespace ToDoList.BLL.DTO.ToDo;
 
 public class ToDoCreateDTO
 {
-    [Required]
-    [StringLength(50)]
     public string? Title { get; set; }
-    [Required]
-    [DataType(DataType.Date)]
-    public string? CreatedAt { get; set; }
-    [Required]
-    [DataType(DataType.Date)]
-    public string? DueDate { get; set; }
-    [Required]
-    [StringLength(500)]
+    public DateTime CreatedAt { get; set; }
+    public DateTime DueDate { get; set; }
     public string? Description { get; set; }
-    [Required]
     public int StatusId { get; set; }
 }

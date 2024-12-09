@@ -62,7 +62,6 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    Console.WriteLine(builder.Environment.EnvironmentName);
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     dbContext.Database.Migrate();
 }

@@ -16,4 +16,8 @@ services:
       SA_PASSWORD: "!1String"
       ACCEPT_EULA: "Y"
 
+  client:
+    image: ${DOCKER_REGISTRY-}todolist_client
+    container_name: reverent_maxwell
+    
 
